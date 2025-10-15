@@ -2,7 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 500,
   "height": 300,
-  
   "layer": [
     {
       "data": {
@@ -12,7 +11,7 @@
       "projection": { "type": "mercator" },
       "mark": {
         "type": "geoshape",
-        "fill": "lightgray",
+        "fill": null,
         "stroke": "#e0e0e0",
         "strokeWidth": 0.5
       }
@@ -22,15 +21,14 @@
         "url": "data/ne_1.json",
         "format": { "type": "topojson", "feature": "states1" }
       },
-      
-      "projection": { "type": "mercator"},
+      "projection": { "type": "mercator" },
       "transform": [
         {
           "lookup": "properties.name",
           "from": {
             "data": { "url": "data/4G_availability_in_Malaysia.csv" },
             "key": "States",
-            "fields": ["Availability_Q1_2022"]
+            "fields": ["Median Download (Mbps)"]
           }
         },
         {
@@ -41,10 +39,10 @@
       "mark": { "type": "geoshape" },
       "encoding": {
         "color": {
-          "field": "Availability_Q1_2022",
+          "field": "Median Download (Mbps)",
           "type": "quantitative",
-          "title": "4G availability (%)",
-          "scale": { "scheme": "blues" },
+          "title": "Median Download (Mbps)",
+          "scale": { "scheme": "reds" },
           "legend": {
         "title": "4G availability (%)",
         "titleFontSize": 13,
@@ -58,7 +56,7 @@
         },
         "tooltip": [
           { "field": "properties.name", "title": "State" },
-          { "field": "Availability_Q1_2022", "title": "4G availability", "format": ".1f" }
+          { "field": "Median Download (Mbps)", "title": "Median Download (Mbps)" }
         ],
         "opacity": {
           "condition": {"selection": "StateFilter", "value": 1},
@@ -86,4 +84,3 @@
     }
   ]
 }
-

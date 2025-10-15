@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Before–after lollipop chart showing 4G availability improvement by state (Q1 2021–Q1 2022), with color intensity by improvement size.",
+  "data": {"url": "data/availability_improvement.csv"},
+  "width": 400,
+  "height":300,
+  "title":"Improvement in 4G Availability by State (Q1 2021 – Q1 2022)",
+  "encoding": {
+    "y": {
+      "field": "States",
+      "type": "nominal",
+      "sort": null,
+      "title": "State"
+    },
+    "x": {
+      "type": "quantitative",
+      "title": "4G Availability (%)",
+      "scale": {"domain": [77, 100]}
+      
+    }
+    
+  },
+
+  "layer": [
+    {
+      "mark": {"type": "rule", "strokeWidth": 3},
+      
+      "encoding": {
+        "x": {"field": "Availability_Q1_2021"},
+        "x2": {"field": "Availability_Q1_2022"},
+        "color": {
+          "field": "Improvement Year over Year (Percent)",
+          "type": "quantitative",
+          "scale": {"domain": [4, 8, 12], "range": ["#a8dadc", "#457b9d", "#1d3557"]},
+          "legend": {"title": "Improvement (%)", "values": [4,  8,  12]}
+        },
+        "tooltip": [
+          {"field": "States", "title": "State"},
+          {"field": "Availability_Q1_2021", "title": "2021 Availability (%)"},
+          {"field": "Availability_Q1_2022", "title": "2022 Availability (%)"},
+          {"field": "Improvement Year over Year (Percent)", "title": "Improvement (%)"}
+        ]
+      }
+    },
+    
+    {
+      "mark": {"type": "point", "filled": true, "color": "#9E9E9E", "size": 150},
+      "encoding": {"x": {"field": "Availability_Q1_2021"}}
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 250},
+      "encoding": {
+        "x": {"field": "Availability_Q1_2022"},
+        "color": {
+          "field": "Improvement Year over Year (Percent)",
+          "type": "quantitative",
+          "scale": {"domain": [4, 8, 12], "range": ["#a8dadc", "#457b9d", "#1d3557"]}
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 8,
+        "fontSize": 11,
+        "color": "black"
+      },
+      "encoding": {
+        "x": {"field": "Availability_Q1_2022"},
+        "text": {
+          "field": "Improvement Year over Year (Percent)",
+          "type": "quantitative",
+          "format": "+.1f"
+        }
+      }
+    }
+
+
+
+
+    
+  ]
+}

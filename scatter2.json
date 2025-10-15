@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 300,
+  "title": "4G availability vs Gini (Income Inequality)",
+  "data": {"url": "data/4G_availability_in_Malaysia.csv"},
+  "params": [
+    {
+      "name": "region_filter",
+      "value": null,
+      "bind": {
+        "input": "select",
+        "options": [null, "Peninsular Malaysia", "East Malaysia"],
+        "labels": ["Show All", "Peninsular Malaysia", "East Malaysia"],
+        "name": "Filter by Region: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "lookup": "States",
+      "from": {
+        "data": {"url": "data/4G_availability_in_Malaysia.csv"},
+        "key": "States",
+        "fields": ["gini", "poverty"]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "circle", "opacity": 0.8, "stroke": "white", "strokeWidth": 0.5},
+      "transform": [{"filter": "!region_filter || datum.Region == region_filter"}],
+      "encoding": {
+        "x": {
+          "field": "gini",
+          "type": "quantitative",
+          "title": "Gini Coefficient (Income Inequality)",
+          "scale": {"domain": [0.28, 0.42]}
+        },
+        "y": {
+          "field": "Improvement Year over Year (Percent)",
+          "type": "quantitative",
+          "title": "4G Availability Improvement (%)",
+          "scale": {"domain": [0,13]}
+    
+        },
+        "size": {
+          "field": "poverty",
+          "type": "quantitative",
+          "title": "Poverty Rate (%)",
+          "scale": {"range": [100, 2000]}
+        },
+      "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Peninsular Malaysia", "East Malaysia"],
+            "range": ["#1f77b4", "#ff7f0e"]
+          },
+          "legend": {"title": "Region"}
+        },
+        "tooltip": [
+          {"field": "States", "title": "State"},
+          {"field": "gini", "title": "Gini Coefficient"},
+          {
+            "field": "Improvement Year over Year (Percent)",
+            "title": "4G Improvement (%)"
+          },
+          {"field": "poverty", "title": "Poverty Rate (%)"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "black", "strokeDash": [4, 2]},
+      "transform": [
+        {
+          "regression": "Improvement Year over Year (Percent)",
+          "on": "gini",
+          "method": "linear"
+        }
+      ],
+      "encoding": {
+        "x": {"field": "gini", "type": "quantitative"},
+        "y": {
+          "field": "Improvement Year over Year (Percent)",
+          "type": "quantitative"
+        }
+      }
+    }
+  ]
+}

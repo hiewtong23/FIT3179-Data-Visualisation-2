@@ -1,17 +1,17 @@
-States,Availability_Q1_2021,Availability_Q1_2022,Improvement Year over Year (Percent),Median Download (Mbps),Median Upload(Mbps),income_mean,poverty
-Kuala Lumpur,83.3,87.2,4.7,21.08,7.3,8517,4.6
-Johor,85.7,92.9,8.5,23.44,7.2,5550,9
-Kedah,87,93.1,6.9,20.35,6.82,4885,13.2
-Kelantan,80.5,90.5,12.4,19.02,5.81,8057,4.2
-Labuan,84.8,91.6,8.1,23.36,7.37,6788,4.4
-Melaka,86.3,94.1,9.1,22.98,6.43,5777,6.3
-Negeri Sembilan,85.4,93.5,9.6,21.75,6.45,8267,2
-Pahang,83,92.1,11.1,25.12,7.35,5779,7.5
-Pulau Pinang,88.9,93.7,5.4,21.57,7.69,5664,4
-Perak,85.8,92.1,7.3,21.95,6.44,12233,1.5
-Perlis,88.5,94.7,7,19.37,6.79,7248,6.2
-Putrajaya,89.9,96.4,7.3,26.72,8.48,6171,19.7
-Sabah,81.5,88.9,9,20.68,7.99,6457,10.8
-Sarawak,81.8,88.8,8.5,22.14,8.36,13325,1.4
-Selangor,87.3,92.6,6.1,23.01,7.45,8250,2.5
-Terengganu,83,92.1,11,21.4,6.52,13473,0.1
+States,gini,Availability_Q1_2021,Availability_Q1_2022,Improvement Year over Year (Percent),Median Download (Mbps),Median Upload(Mbps),income_mean,poverty,Latitude,Longitude,Region
+Kuala Lumpur,0.3796,83.3,87.2,4.7,21.08,7.3,8517,4.6,3.1319,101.69,Peninsular Malaysia
+Johor,0.36646,85.7,92.9,8.5,23.44,7.2,5550,9,1.937344,103.366585,Peninsular Malaysia
+Kedah,0.35938,87,93.1,6.9,20.35,6.82,4885,13.2,6.12,100.37,Peninsular Malaysia
+Kelantan,0.3854,80.5,90.5,12.4,19.02,5.81,8057,4.2,5.12,101.8,Peninsular Malaysia
+Labuan,0.30028,84.8,91.6,8.1,23.36,7.37,6788,4.4,5.28,115.25,East Malaysia
+Melaka,0.36963,86.3,94.1,9.1,22.98,6.43,5777,6.3,2.2,102.25,Peninsular Malaysia
+Negeri Sembilan,0.36853,85.4,93.5,9.6,21.75,6.45,8267,2,2.7,102,Peninsular Malaysia
+Pahang,0.3077,83,92.1,11.1,25.12,7.35,5779,7.5,3.75,102.5,Peninsular Malaysia
+Pulau Pinang,0.37058,88.9,93.7,5.4,21.57,7.69,5664,4,5.4,100.28,Peninsular Malaysia
+Perak,0.36769,85.8,92.1,7.3,21.95,6.44,12233,1.5,4.6,101.09,Peninsular Malaysia
+Perlis,0.33589,88.5,94.7,7,19.37,6.79,7248,6.2,6.51,100.2,Peninsular Malaysia
+Putrajaya,0.3678,89.9,96.4,7.3,26.72,8.48,6171,19.7,2.93,101.68,Peninsular Malaysia
+Sabah,0.39491,81.5,88.9,9,20.68,7.99,6457,10.8,5.9,116.07,East Malaysia
+Sarawak,0.3818,81.8,88.8,8.5,22.14,8.36,13325,1.4,2.3,113.3,East Malaysia
+Selangor,0.36123,87.3,92.6,6.1,23.01,7.45,8250,2.5,3.1,101.55,Peninsular Malaysia
+Terengganu,0.32631,83,92.1,11,21.4,6.52,13473,0.1,5.33,103.12,Peninsular Malaysia

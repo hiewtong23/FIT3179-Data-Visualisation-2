@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malaysia 4G Availability — 2022</title>
+
+  <!-- Vega Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- Layout Styling -->
+  <style>
+    body {
+      margin: 24px;
+      font: 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+      background-color:  #f4f7fb;
+      
+    }
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    title {
+       font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #222;
+    }
+
+    h1, h2 {
+      color: #222;
+    }
+    h1 {
+      font-family: 'Montserrat', serif;
+      font-weight: 1500;
+      font-size: 50px;
+      letter-spacing: 0.5px;
+      color: #222;
+      text-align: center;
+      margin-bottom: 0px;
+    }
+    h2 {
+      font-family: 'Montserrat', serif;
+        font-weight: 600;
+        font-size: 24px;
+        color: #222;
+        margin-bottom: 10px;
+        text-align: left;
+        max-width: fit-content;
+    }
+    p {
+      color: #444;
+    }
+    .subtitle {
+      font-family: 'Inter', 'Open Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+      max-width: 1000px; /* keeps it from stretching too wide */
+    }
+    .chart-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: #555;
+      margin-top: 0;
+      margin-bottom: 48px;
+      text-align: left;
+    }
+
+    /* Containers */
+    .vis-section {
+      background: #fff;
+      padding: 48px;
+      margin-bottom: 20px;
+     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+
+      border-radius: 8px;
+    }
+    /* Ensure visuals scale nicely */
+    .vis-container > div, .vis-container {
+      width: 100%;
+
+    }
+        /* Arrange text and map side by side */
+    .side-by-side {
+      display: flex;
+      align-items: center;         /* vertically center */
+      justify-content: space-between;
+      gap: 20px;                   /* spacing between map and text */
+      margin-bottom: 40px;
+    }
+    .side-by-side.reverse {
+      flex-direction: row-reverse;
+    }
+
+
+    .side-by-side .left {
+      flex: 1;   
+      font-size: 15px;
+      line-height: 1.6;                  /* map takes available space */
+    }
+
+    .side-by-side .right {
+      flex: 1;                     /* text takes equal width */
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>Mapping Malaysia’s 4G Connectivity — 2022</h1>
+    <p class = "subtitle">
+      This dashboard visualises Malaysia’s 4G availability, download performance, and socioeconomic indicators across states using multiple data visualisation idioms.
+    </p>
+
+    <!-- Section 1: Map + Description -->
+    <div class="vis-section">
+      <div class="side-by-side">
+        <div class="left">
+          <h2>4G Network Availability by State (Q1 2022)</h2>
+          <!-- <p class="chart-subtitle">Darker shades indicate higher 4G coverage rates.</p> -->
+          <div id="map"></div>
+        </div>
+
+        <div class="right">
+          <p>
+           The availability of 4G networks varies notably across the country, with a clear difference between Peninsular Malaysia and East Malaysia.
+           <!-- reflecting strong network infrastructure and dense urban coverage in areas such as Selangor, Pulau Pinang, and Perlis.  -->
+          </p>
+          <p>
+          Almost every state in Peninsular Malaysia records availability above 90%
+          In contrast, Sabah and Sarawak show comparatively lower availability, which indicates challenges in expansing reliable nextwork access
+          across more remote regions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 2: Median Download Speed -->
+      <div class="side-by-side">
+        <div class="right">
+          <h2>Median Download Speeds Across Malaysian States</h2>
+          <div id="choropleth2"></div>
+        </div>
+
+        <div class="left">
+          <p>
+            Central and western parts of Penisular Malaysia show higher download speeds.
+            East Malaysian states such as Sabah and Sarawak show slower median speeds. This again highlights the digital divide
+            between urban and rural regions.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="side-by-side">
+        <div class="right">
+            <h2>Year-on-Year Improvement in 4G Availability (2021–2022)</h2>
+            <p class = "chart-subtitle">Each line connects 4G availability between Q1 2021 (grey) and Q1 2022 (blue), showing improvement by state.</p>
+            <div id="lollipop2"></div>
+        </div>
+
+        <div class="left">
+          <p>
+            4G availability improved across all Malaysian states between Q1 2021 and Q1 2022.
+          </p>
+          <p>
+            The largest gains occurred in Kelantan (+12.4%), Pahang (+11.1%), and Terengganu (+11.0%), showing strong progress in the East Coast.
+            Urban areas like Kuala Lumpur and Pulau Pinang saw smaller increases due to already high coverage levels.
+          </p>
+          <p>
+            Overall, the gap between states is narrowing, reflecting more balanced nationwide connectivity.
+          </p>
+        </div>
+      </div>
+
+      <div class="side-by-side">
+        <div class="right">
+            <h2>Comparison of 4G Availability and Median Download Speed</h2>
+            <!-- <p class = "chart-subtitle">While coverage is widespread, download performance varies significantly between states.</p> -->
+            <div id="dual-axis"></div>
+        </div>
+
+        <div class="left">
+          <p>
+          Interestingly, high availability does not always translate to higher speeds.
+          </p>
+          <p>
+          For instance, states like Perlis and Kelantan have relatively strong 4G coverage yet show noticeably lower median download speeds, possibly due to network congestion or bandwidth limitations.
+          </p>
+          <p> Meanwhile, areas such as Putrajaya, Pahang and Johor stand out for combining strong coverage with relatively high download speeds, indicating efficient and stable network performance</p>
+        </div>
+      </div>
+
+
+      <div class="side-by-side">
+        <div class="right">
+            <h2>Does higher income tend to have better 4G coverage?</h2>
+            <div id="scatterplot"></div>
+        </div>
+
+        <div class="left">
+          <p>
+            Contrary to expectation, the chart shows a slightly negative correlation, 
+            where states with higher 4G availability tend to have lower mean household income. 
+          </p>
+          <p>
+            For instance, Putrajaya and several urban states exhibit very high 4G availability but comparatively lower income levels, while Sarawak and Perak show higher incomes despite lower coverage.
+          </p>
+          <p>
+            This pattern suggests that while connectivity infrastructure is widespread, economic prosperity does not directly correspond to mobile network reach.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="side-by-side">
+        <div class="right">
+          <h2>Does Inequality Affect 4G Improvement? (Malaysia, Q1 2021–Q1 2022)</h2>
+          <div id="scatter2"></div>
+        </div>
+
+        <div class="left">
+          <p>
+            The chart reveals a slightly negative relationship between income inequality and 4G improvement. 
+            Most Peninsular states cluster around moderate inequality (0.35–0.37) and steady improvement levels, while East Malaysian states (e.g., Sabah and Sarawak) exhibit higher inequality but smaller network gains.
+          </p>
+          <p> 
+           States with fairer income distribution tend to experience stronger connectivity improvements, hinting that social and digital equity are interconnected.
+          </p>
+        </div>
+      </div>
+
+      <!-- <div class="side-by-side">
+        <div class="right">
+          <h2>Bar Chart</h2>
+          <div id="bar-chart"></div>
+        </div>
+
+        <div class="left">
+          <p>
+            This choropleth map shows the median download speed (Mbps) across Malaysian states.
+            Darker red shades represent faster network performance. The map highlights states
+            with stronger network infrastructure, complementing the availability map above.
+          </p>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+  <!-- Vega Embeds -->
+  <script>vegaEmbed('#map', 'map_availability.json', {actions:false});</script>
+  <script>vegaEmbed('#scatterplot', 'Scatterplot.json', {actions:false});</script>
+  <script>vegaEmbed('#lollipop2', 'lollipop2.json', {actions:false});</script>
+  <script>vegaEmbed('#dual-axis', 'dual_axis.json', {actions:false});</script>
+  <script>vegaEmbed('#choropleth2', 'choropleth2.json', {actions:false});</script>
+  <script>vegaEmbed('#proportional-symbol', 'proportional-symbol.json', {actions:false});</script>
+  <script>vegaEmbed('#scatter2', 'scatter2.json', {actions:false});</script>
+  <script>vegaEmbed('#bar-chart', 'barchart.json', {actions:false});</script>
+
+</body>
+</html>
