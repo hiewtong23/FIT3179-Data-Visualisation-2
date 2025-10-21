@@ -19,7 +19,7 @@
       
     }
     .wrap {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
@@ -45,13 +45,15 @@
     h2 {
       font-family: 'Montserrat', serif;
         font-weight: 600;
-        font-size: 24px;
+        font-size: 26px;
         color: #222;
         margin-bottom: 10px;
         text-align: left;
         max-width: fit-content;
     }
+
     p {
+      font-family: 'Montserrat', sans-serif;
       color: #444;
     }
     .subtitle {
@@ -60,7 +62,8 @@
       font-size: 16px;
       color: #444;
       line-height: 1.6;
-      max-width: 1000px; /* keeps it from stretching too wide */
+      max-width: 1100px; 
+      font-style: italic;
     }
     .chart-subtitle {
       font-family: 'Inter', sans-serif;
@@ -70,6 +73,11 @@
       margin-top: 0;
       margin-bottom: 48px;
       text-align: left;
+    }
+    .special{
+      font-family: 'Montserrat', sans-serif;
+      color: #444;
+      margin-left: 70px;
     }
 
     /* Containers */
@@ -111,6 +119,34 @@
       line-height: 1.6;
     }
 
+footer {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+  margin-top: 50px;
+  padding: 10px 0;
+  border-top: 3px solid #ddd;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+footer a {
+  color: #1f77b4;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  margin: 0;
+}
+
+.teal { color: #008080; font-weight: bold; }
+.gold { color: #b59f3b; font-weight: bold; }
+.highlight { color: rgb(57, 56, 56); font-weight: bold; }
+
+
   </style>
 </head>
 
@@ -132,13 +168,18 @@
 
         <div class="right">
           <p>
-           The availability of 4G networks varies notably across the country, with a clear difference between Peninsular Malaysia and East Malaysia.
-           <!-- reflecting strong network infrastructure and dense urban coverage in areas such as Selangor, Pulau Pinang, and Perlis.  -->
+           The availability of 4G networks varies notably across the country, with a clear difference between 
+          <span class="teal">Peninsular Malaysia</span> 
+          and 
+          <span class="gold">East Malaysia</span>.
+          
           </p>
           <p>
-          Almost every state in Peninsular Malaysia records availability above 90%
-          In contrast, Sabah and Sarawak show comparatively lower availability, which indicates challenges in expansing reliable nextwork access
-          across more remote regions.
+          Almost every state in <span class="teal">Peninsular Malaysia</span> records 
+          <span class="highlight">availability above 90%</span>. 
+          In contrast, <span class="gold">Sabah</span> and <span class="gold">Sarawak</span> 
+          show comparatively lower availability, which indicates challenges 
+          in expanding reliable network access across more remote regions.
           </p>
         </div>
       </div>
@@ -152,10 +193,16 @@
 
         <div class="left">
           <p>
-            Central and western parts of Penisular Malaysia show higher download speeds.
-            East Malaysian states such as Sabah and Sarawak show slower median speeds. This again highlights the digital divide
-            between urban and rural regions.
+          Central and western parts of <span class="teal">Peninsular Malaysia</span> 
+          show <span class="highlight">higher download speeds</span>.
           </p>
+          <p>
+          <span class="gold">East Malaysian</span> states such as 
+          <span class="gold">Sabah</span> and <span class="gold">Sarawak</span> 
+          record <span class="highlight">slower median speeds</span>, 
+          again highlighting the <span class="highlight">digital divide</span> 
+          between urban and rural regions.
+        </p>
         </div>
       </div>
 
@@ -163,39 +210,55 @@
       <div class="side-by-side">
         <div class="right">
             <h2>Year-on-Year Improvement in 4G Availability (2021–2022)</h2>
-            <p class = "chart-subtitle">Each line connects 4G availability between Q1 2021 (grey) and Q1 2022 (blue), showing improvement by state.</p>
             <div id="lollipop2"></div>
+              <p class = "chart-subtitle">Each line connects 4G availability between Q1 2021 (grey) and Q1 2022 (blue), showing improvement by state.</p>
         </div>
 
         <div class="left">
-          <p>
-            4G availability improved across all Malaysian states between Q1 2021 and Q1 2022.
-          </p>
-          <p>
-            The largest gains occurred in Kelantan (+12.4%), Pahang (+11.1%), and Terengganu (+11.0%), showing strong progress in the East Coast.
-            Urban areas like Kuala Lumpur and Pulau Pinang saw smaller increases due to already high coverage levels.
-          </p>
-          <p>
-            Overall, the gap between states is narrowing, reflecting more balanced nationwide connectivity.
-          </p>
+        <p>
+          <span class="highlight">4G availability improved across all Malaysian states</span> between Q1 2021 and Q1 2022.
+        </p>
+        <p>
+          The largest gains occurred in 
+          <span class="gold">Kelantan</span> (+12.4%), 
+          <span class="gold">Pahang</span> (+11.1%), and 
+          <span class="gold">Terengganu</span> (+11.0%), showing strong progress in the 
+          <span class="gold">East Coast</span>.
+        </p>
+        <p>
+          Urban areas like <span class="teal">Kuala Lumpur</span> and 
+          <span class="teal">Pulau Pinang</span> saw smaller increases due to already high coverage levels.
+          Overall, the gap between states is narrowing, reflecting 
+          <span class="highlight">more balanced nationwide connectivity</span>.
+        </p>
         </div>
       </div>
 
       <div class="side-by-side">
         <div class="right">
-            <h2>Comparison of 4G Availability and Median Download Speed</h2>
+            <h2>Do States with Higher 4G Availability Also Enjoy Faster Speeds?</h2>
             <!-- <p class = "chart-subtitle">While coverage is widespread, download performance varies significantly between states.</p> -->
             <div id="dual-axis"></div>
         </div>
 
         <div class="left">
-          <p>
-          Interestingly, high availability does not always translate to higher speeds.
+          <p class = "special">
+          Interestingly, <span class="highlight">high availability does not always translate to higher speeds</span>.
           </p>
-          <p>
-          For instance, states like Perlis and Kelantan have relatively strong 4G coverage yet show noticeably lower median download speeds, possibly due to network congestion or bandwidth limitations.
+          <p class = "special">
+          For instance, states like <span class="gold">Perlis</span> and 
+          <span class="gold">Kelantan</span> have relatively strong 4G coverage yet show 
+          noticeably lower download speeds — possibly due to 
+          <span class="highlight">network congestion</span> or 
+          <span class="highlight">bandwidth limitations</span>.
           </p>
-          <p> Meanwhile, areas such as Putrajaya, Pahang and Johor stand out for combining strong coverage with relatively high download speeds, indicating efficient and stable network performance</p>
+
+          <p class = "special"> 
+            Meanwhile, areas such as <span class="teal">Putrajaya</span>, 
+            <span class="teal">Pahang</span>, and <span class="teal">Johor</span> 
+            combine strong coverage with high speeds, indicating 
+            <span class="highlight">efficient and stable network performance</span>.
+          </p>
         </div>
       </div>
 
@@ -208,14 +271,20 @@
 
         <div class="left">
           <p>
-            Contrary to expectation, the chart shows a slightly negative correlation, 
-            where states with higher 4G availability tend to have lower mean household income. 
+            Contrary to expectation, the chart shows a 
+            <span class="highlight">slightly negative correlation</span> — 
+            states with higher 4G availability tend to have 
+            <span class="highlight">lower mean household income</span>.
           </p>
           <p>
-            For instance, Putrajaya and several urban states exhibit very high 4G availability but comparatively lower income levels, while Sarawak and Perak show higher incomes despite lower coverage.
+            For instance, <span class="teal">Putrajaya</span> and several urban states exhibit 
+            very high 4G availability but comparatively lower income levels, 
+            while <span class="gold">Sarawak</span> and <span class="gold">Perak</span> 
+            show higher incomes despite lower coverage.
           </p>
           <p>
-            This pattern suggests that while connectivity infrastructure is widespread, economic prosperity does not directly correspond to mobile network reach.
+             This pattern suggests that while connectivity is widespread, 
+            <span class="highlight">economic prosperity does not directly correspond to mobile network reach</span>.
           </p>
         </div>
       </div>
@@ -228,30 +297,39 @@
         </div>
 
         <div class="left">
-          <p>
-            The chart reveals a slightly negative relationship between income inequality and 4G improvement. 
-            Most Peninsular states cluster around moderate inequality (0.35–0.37) and steady improvement levels, while East Malaysian states (e.g., Sabah and Sarawak) exhibit higher inequality but smaller network gains.
-          </p>
-          <p> 
-           States with fairer income distribution tend to experience stronger connectivity improvements, hinting that social and digital equity are interconnected.
-          </p>
+      <p>
+        The chart reveals a <span class="highlight">slightly negative relationship</span> 
+        between <span class="highlight">income inequality</span> and 
+        <span class="highlight">4G improvement</span>.
+      </p>
+      <p>
+        Most <span class="teal">Peninsular Malaysia</span> states cluster around 
+        moderate inequality (0.35–0.37) and steady improvement, 
+        while <span class="gold">East Malaysian</span> states 
+        (<span class="gold">Sabah</span> and <span class="gold">Sarawak</span>) 
+        exhibit higher inequality but smaller gains.
+      </p>
+      <p>
+        States with fairer income distribution tend to experience stronger network improvements, 
+        hinting that <span class="highlight">social and digital equity are interconnected</span>.
+      </p>
         </div>
       </div>
 
-      <!-- <div class="side-by-side">
-        <div class="right">
-          <h2>Bar Chart</h2>
-          <div id="bar-chart"></div>
-        </div>
 
-        <div class="left">
-          <p>
-            This choropleth map shows the median download speed (Mbps) across Malaysian states.
-            Darker red shades represent faster network performance. The map highlights states
-            with stronger network infrastructure, complementing the availability map above.
-          </p>
-        </div>
-      </div> -->
+      <footer>
+        <p>Visualisation by Yap Hiew Tong</p>
+        <p>Created on 21/10/2025</p>
+         <p>
+          Sources: 
+          <a href="https://open.dosm.gov.my/data-catalogue/hies_state" target="_blank">
+            DOSM — HIES State Data
+          </a> 
+          & 
+          <a href="https://www.ookla.com/articles/malaysia-4g-5g-performance-q2-2022" target="_blank">
+            Ookla — Malaysia 4G/5G Performance (Q2 2022)
+          </a> 
+        </p>
 
     </div>
   </div>

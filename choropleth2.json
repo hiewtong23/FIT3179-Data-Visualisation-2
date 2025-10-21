@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": 550,
   "height": 300,
   "layer": [
     {
@@ -80,6 +80,60 @@
             "name": "Select State: "
           }
         }
+      }
+    },
+     {
+      "data": {
+        "values": [
+          {
+            "x1": 102.6, "y1": 3.9, "x2": 104.3, "y2": 4.3  
+          },
+          {
+            "x1": 101.8, "y1": 5.12, "x2": 104.3, "y2": 6.5  
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#b34b17",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {"field": "x1"},
+        "latitude": {"field": "y1"},
+        "longitude2": {"field": "x2"},
+        "latitude2": {"field": "y2"}
+      }
+    },
+
+    {
+      "data": {
+        "values": [
+          {
+            "note": "Pahang - Highest download speed: 25.12mbps",
+            "longitude": 104.4,
+            "latitude": 4.35
+          },
+          {
+            "note": "Kelantan - Lowest download speed: 19.02mbps",
+            "longitude": 104.4,
+            "latitude": 6.7
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 3,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "#b34b17"
+      },
+      "encoding": {
+        "longitude": {"field": "longitude"},
+        "latitude": {"field": "latitude"},
+        "text": {"field": "note"}
       }
     }
   ]

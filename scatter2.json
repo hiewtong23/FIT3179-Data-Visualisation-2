@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 400,
+  "width": 490,
   "height": 300,
   "title": "4G availability vs Gini (Income Inequality)",
   "data": {"url": "data/4G_availability_in_Malaysia.csv"},
@@ -28,7 +28,7 @@
   ],
   "layer": [
     {
-      "mark": {"type": "circle", "opacity": 0.8, "stroke": "white", "strokeWidth": 0.5},
+      "mark": {"type": "circle", "opacity": 0.75, "stroke": "white", "strokeWidth": 0.5},
       "transform": [{"filter": "!region_filter || datum.Region == region_filter"}],
       "encoding": {
         "x": {
@@ -55,7 +55,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Peninsular Malaysia", "East Malaysia"],
-            "range": ["#1f77b4", "#ff7f0e"]
+            "range": ["#008080", "#b59f3b"]
           },
           "legend": {"title": "Region"}
         },
@@ -86,6 +86,31 @@
           "type": "quantitative"
         }
       }
+    },
+     {
+      "data": { "url": "data/4G_availability_in_Malaysia.csv" },
+      "transform": [{"filter": "!region_filter || datum.Region == region_filter"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "dy": -5,
+        "color": "black",
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {"field": "gini", "type": "quantitative"},
+        "y": {"field": "Improvement Year over Year (Percent)", "type": "quantitative"},
+        "text": {"field": "States"},
+        "opacity": {
+          "condition": {
+            "test": "datum.States == 'Putrajaya' || datum.States == 'Pahang' || datum.States == 'Terengganu' || datum.States == 'Perak'||datum.States == 'Sabah'||datum.States == 'Labuan'||datum.States == 'Kelantan'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
     }
   ]
+  
 }

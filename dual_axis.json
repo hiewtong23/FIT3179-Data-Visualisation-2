@@ -2,7 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Dual-axis line chart comparing 4G availability and download speed by state.",
   "data": {"url": "data/dual-axis.csv"},
-  "width": 400,
+  "title":"Dual-Axis Comparison of 4G Availability and Median Download Speed by State (2022)",
+  "width": 510,
   "height": 300,
 
   "layer": [
@@ -22,6 +23,7 @@
           "axis": {"titleColor": "#1f77b4","grid": true},
           "scale": {"domain": [30, 100]}
         },
+        
         "tooltip": [
           {"field": "state"},
           {"field": "Availability_Q1_2022", "title": "4G Availability (%)"},
@@ -40,7 +42,23 @@
           "scale": {"domain": [15, 30]}
         }
       }
+    },
+      {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 4,
+        "dy": -6,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1f77b4"
+      },
+      "encoding": {
+        "x": {"field": "state", "type": "nominal"}
+      },
+      "transform": [{"filter": "datum.state === 'Putrajaya'"}]
     }
+
   ],
   "resolve": {"scale": {"y": "independent"}}
 }

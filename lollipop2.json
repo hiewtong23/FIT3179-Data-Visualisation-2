@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Before–after lollipop chart showing 4G availability improvement by state (Q1 2021–Q1 2022), with color intensity by improvement size.",
   "data": {"url": "data/availability_improvement.csv"},
-  "width": 400,
+  "width": 460,
   "height":300,
   "title":"Improvement in 4G Availability by State (Q1 2021 – Q1 2022)",
   "encoding": {
@@ -48,7 +48,7 @@
       "encoding": {"x": {"field": "Availability_Q1_2021"}}
     },
     {
-      "mark": {"type": "point", "filled": true, "size": 250},
+      "mark": {"type": "point", "filled": true, "size": 150},
       "encoding": {
         "x": {"field": "Availability_Q1_2022"},
         "color": {
